@@ -1,0 +1,24 @@
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "description": "est project for webpack, react, TypeScript and other modern UI things",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marko",
+  "license": "ISC",
+  "dependencies": {
+    "@types/flux": "0.0.33",
+    "@types/react": "^0.14.55",
+    "@types/react-dom": "^0.14.19",
+    "flux": "^3.1.2",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.0.0-beta.17",
+    "source-map-loader": "^0.1.5",
+    "typescript": "^2.1.4"
+  }
+}
