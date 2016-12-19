@@ -1,5 +1,5 @@
 import { TodoItemModel, TodoListModel, ItemStatus } from "../models/TodoItemModel";
-import {TodoStore} from "../dispatcher/TodoStore";
+import {todoStore} from "../dispatcher/TodoStore";
 import {TodoEventFactory} from "../dispatcher/TodoEventFactory";
 import * as React from "react";
 
@@ -75,8 +75,8 @@ export class TodoListStateful extends React.Component<any, TodoList>  {
   }
 
   componentDidMount() {
-    TodoStore.subscribe(() => {
-      this.setState({items: TodoStore.getList()});
+    todoStore.on("change", () => {
+      this.setState({items: todoStore.getList()});
     });
   }
 

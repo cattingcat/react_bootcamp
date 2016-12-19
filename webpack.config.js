@@ -38,6 +38,7 @@ module.exports = {
     externals: {
         "react": "React",
         "react-dom": "ReactDOM",
-        "flux": "Flux"
+        "flux": "Flux",
+        "node": "Node"
     }
 };

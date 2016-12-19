@@ -1,35 +1,30 @@
 import { TodoItemModel, TodoListModel, ItemStatus } from "../models/TodoItemModel";
 import {AppDispatcher} from "./AppDispatcher";
+import {EventEmitter} from "events";
 
-export let TodoStore: any = {
-    todos: [],
-    listeners: [],
-
+class TodoStore extends EventEmitter {
+    todos: Array<TodoItemModel>
+    
     add(o: TodoItemModel) {
         this.todos.push(o);
 
-        this.trigger();
-    },
+        this.emit("change");
+    }
 
     getList() {
         return this.todos;
-    },
-
-    subscribe(f: () => any){
-        this.listeners.push(f);
-    },
-
-    trigger() {
-        this.listeners.forEach((i: any) => i());
     }
 }
+
+
+export let todoStore: any = new TodoStore();
 
 
 AppDispatcher.register(payload => {
     switch(payload.eventName){
         case "ADD_ITEM":
             let item = payload.item;
-            TodoStore.add(item);
+            todoStore.add(item);
             break;
 
         default:
