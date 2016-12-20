@@ -14,3 +14,6 @@ dev dependencies for typescript
 
 #5
 webpack
+
+
+https://www.youtube.com/watch?v=-CJzPfOm5rs  45 

@@ -1,6 +1,7 @@
 import { TodoItemModel, TodoListModel, ItemStatus } from "../models/TodoItemModel";
 import {todoStore} from "../dispatcher/TodoStore";
 import {TodoEventFactory} from "../dispatcher/TodoEventFactory";
+import {reduxStore} from "../dispatcher/ReduxTodoStore";
 import * as React from "react";
 
 type TodoItem = { item: TodoItemModel };
@@ -36,6 +37,7 @@ class TodoListMenu extends React.Component<any, any> {
     };
 
     TodoEventFactory.add(todoItem);
+    reduxStore.dispatch({ type:"INC" });
   }
   
   render() {

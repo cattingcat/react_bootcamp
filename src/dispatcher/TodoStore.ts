@@ -3,7 +3,7 @@ import {AppDispatcher} from "./AppDispatcher";
 import {EventEmitter} from "events";
 
 class TodoStore extends EventEmitter {
-    todos: Array<TodoItemModel>
+    todos: Array<TodoItemModel> = []
     
     add(o: TodoItemModel) {
         this.todos.push(o);
