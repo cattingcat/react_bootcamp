@@ -15,5 +15,5 @@ dev dependencies for typescript
 #5
 webpack
 
-
-https://www.youtube.com/watch?v=-CJzPfOm5rs  45 
+#6
+webpack-dev-server --content-base . --port 8081

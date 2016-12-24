@@ -1,13 +1,35 @@
+// Base react imports 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { Hello } from "./components/Hello";
-import { Foo } from "./models/MyModel"
+// React Router
+import { Router, Route, IndexRoute } from "react-router";
 
-const m = new Foo();
-m.test();
+// Redux
+import { Provider } from "react-redux";
+
+// Custom components
+import { App } from "./components/App";
+import { ImageGrid } from "./components/ImageGrid"; 
+import { ImageView } from "./components/ImageView"; 
+import { AboutPage } from "./components/AboutPage";
+
+// store
+import {history, store} from "./stores/store";
+
+const router = (
+    <Provider store={store}>
+        <Router history={history}>
+            <Route path="/" component={App}> 
+                <IndexRoute component={AboutPage}/>
+                <Route path="/grid" component={ImageGrid} />
+                <Route path="/view/:postId" component={ImageView} />
+            </Route>
+        </Router>
+    </Provider>
+);
 
 ReactDOM.render(
-    <Hello compiler="TypeScript" framework="React" />,
+    router,
     document.getElementById("example")
 );
